@@ -1,0 +1,76 @@
+:root {
+  --color1: #33E1ED;
+  --color2: #E2CF45;
+  --color-bg: #2D2D44;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: var(--color-bg);
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+#backdrop,
+#stencil {
+  fill: var(--color-bg);
+}
+
+#line1,
+#line2 {
+  stroke: var(--color1);
+  stroke-width: 6;
+  visibility: hidden;
+  animation: lines 1.5s linear 0s forwards;
+}
+
+#cursive {
+  stroke: var(--color1);
+  visibility: hidden;
+  animation: cursive 2s linear 1s forwards;
+}
+
+#point {
+  stroke: var(--color2);
+  stroke-width: 40;
+  fill: var(--color2);
+  visibility: hidden;
+  animation: point 0.5s linear 3s forwards;
+}
+
+@keyframes lines {
+  0% {
+    stroke-dasharray: 0 250;
+  }
+  49% {
+    stroke-dasharray: 250 0;
+  }
+  50% {
+    stroke-dasharray: 0 0 250;
+  }
+  100% {
+    visibility: visible;
+    stroke-dasharray: 0 250 0;
+  }
+}
+@keyframes cursive {
+  from {
+    stroke-dasharray: 0 1000;
+  }
+  to {
+    visibility: visible;
+    stroke-dasharray: 1000 0;
+  }
+}
+@keyframes point {
+  to {
+    stroke-width: 0;
+    visibility: visible;
+  }
+}
